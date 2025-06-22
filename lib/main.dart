@@ -8,8 +8,10 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        Provider<CounterProvider>(create: (_) => CounterProvider()),
-        Provider<NameProvider>(create: (_) => NameProvider()),
+        ChangeNotifierProvider<CounterProvider>(
+          create: (_) => CounterProvider(),
+        ),
+        ChangeNotifierProvider<NameProvider>(create: (_) => NameProvider()),
       ],
       child: const MyApp(),
     ),
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
