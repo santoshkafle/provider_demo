@@ -29,7 +29,25 @@ class ColorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Color: ${context.watch<ColorProvider>().getColorName}"),
+        title: Consumer(
+          builder: (ctx, _, _) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 2,
+              children: [
+                Text("Color: ", style: TextStyle(fontSize: 26)),
+                Text(
+                  ctx.watch<ColorProvider>().getColorName,
+                  style: TextStyle(
+                    color: ctx.watch<ColorProvider>().color,
+                    fontSize: 22,
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+        centerTitle: true,
       ),
       backgroundColor: context.watch<ColorProvider>().color,
       body: ListView.builder(

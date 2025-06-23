@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_demo/page/color_page.dart';
-import 'package:provider_demo/page/home_page.dart';
 import 'package:provider_demo/provider/color_provider.dart';
 import 'package:provider_demo/provider/counter_provider.dart';
 import 'package:provider_demo/provider/name_provider.dart';
